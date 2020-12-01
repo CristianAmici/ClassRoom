@@ -22,7 +22,7 @@ $r->addRoute("Editar", "POST", "MateriasControlador", "EditarMateria");
 $r->addRoute("Detalle/:ID", "GET", "MateriasControlador", "DetalleMateria");
 /////////////////////////////////ALUMNO///////////////////////////////
 $r->addRoute("tablaAlumnos", "GET", "MateriasControlador", "tablaAlumnos"); 
-$r->addRoute("SelectAlumno", "GET","MateriasControlador", "getAlumnosPorAsig");
+$r->addRoute("SelectAlumno", "POST","MateriasControlador", "getAlumnosPorAsig");
 $r->addRoute("InsertarAlumno", "POST","MateriasControlador", "InsertarAlumno");
 $r->addRoute("BorrarAlumno/:ID", "GET","MateriasControlador", "DeleteAlumno");
 $r->addRoute("EditarAlumno/:ID", "GET", "MateriasControlador", "EditarIdAlumno");

@@ -20,29 +20,28 @@
                                     <option value="5">⭐⭐⭐⭐⭐</option>
                                 </select>
                             </div>
+                            <!--<button id="borrarComentario" type="button" class="btn btn-light">Cancelar</button>-->
                             <button id="enviarComentario" type="submit" class="btn btn-success">Publicar</button>
-                            <button id="borrarComentario" type="button" class="btn btn-light">Cancelar</button>
-                            <!--hacer funcion-->
                         </div>
                     </div>
 
                     <div id="cajaComentarios" class="comment-box">
-                        <!--<span class="commenter-pic">
-              <img src="/images/user-icon.jpg" class="img-fluid">
-            </span>
-            <span class="commenter-name">
-              <a href="#">Nombre del loro</a>
-            </span>
-            <p class="comment-txt more">Comentario</p>
-            <div class="comment-meta">
-              <button type="button" class="btn btn-outline-warning">Editar</button>
-              <button type="button" class="btn btn-outline-danger">Eliminar</button>
-            </div>
-          </div>-->
+
                     </div>
                 </div>
             </div>
         </div>
+        <form action="paginacion" method="POST" aria-label="Page navigation example">
+            <ul class="pagination">
+
+                <li class="page-item"><button id="enviarComentario" type="submit" class="page-link">Previous</button></li>
+                {/if}}
+                {for $i=1 to $cantidad}
+                    <li class="page-item"><button id="enviarComentario" type="submit" class="page-link">{$i}</button></li>
+                {/for}
+                <li class="page-item"><button id="enviarComentario" type="submit" class="page-link">Next</button></li>
+            </ul>
+        </form>
 </body>
 
 <script src="js/javascript.js"></script>

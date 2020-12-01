@@ -112,11 +112,10 @@ class MateriasControlador
 
     function getAlumnosPorAsig()
     {
-        // $Asignatura = $_GET['action'];
         $this->comprobarSiHayUsuario();
-        if (!empty($_GET['select_materia'])&& ($_GET['select_materia']!= "Todas")) {
-            $Alumnos = $this->model->getAlumnosporAsig($_GET['select_materia']);
-            $Titulo = "Materia:" . $_GET['select_materia'];
+        if (!empty($_POST['select_materia'])&& ($_POST['select_materia']!= "Todas")) {
+            $Alumnos = $this->model->getAlumnosporAsig($_POST['select_materia']);
+            $Titulo = "Materia:" . $_POST['select_materia'];
             $Asignatura = $this->model->getTodasLasMaterias();
             $this->view->MostrarTablaAlumnos($Titulo, $Alumnos, $Asignatura);
         } else {
@@ -206,13 +205,23 @@ class MateriasControlador
         
         $this->comprobarSiHayUsuario();
         $id_detalle = $params[':ID'];
-        $alumnos = $this->model->MostrarAlumno($id_detalle);
+        $alumno = $this->model->MostrarAlumno($id_detalle);
+        $comentarios= $this->model->getComentarios($alumno->nombre_alumno);
+
+        //reveerRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+        if(count($comentarios)>10 &&count($comentarios)<20){
+            $cantidad=2;
+        }elseif(count($comentarios)>20 &&count($comentarios)<30){
+        $cantidad= 3;
+        }else{
+            $cantidad=1;
+        }
         $usuario= $_SESSION['nombre_usuario'];
-        $this->view->showDetallesAlumno($alumnos, $usuario);
+        $this->view->showDetallesAlumno($alumno, $usuario, $cantidad);
     }
     /////////////////////////////////COMENTARIOS///////////////////////////////
     function getComentariosCSR(){
-
+        
         $this->view->showComentariosCSR();
     }
 }

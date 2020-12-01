@@ -108,8 +108,7 @@ class UserControlador
     }
 
     function borrarUsuario($params = null)
-    {
-
+    {   
         if ($this->comprobarSiEsAdministrador()) {
             $id_usuario = $params[':ID'];
             $this->model->deleteUser($id_usuario);
